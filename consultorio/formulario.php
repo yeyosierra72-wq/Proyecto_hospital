@@ -11,7 +11,7 @@ include __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="alert alert-primary text-center text-dark container mt-4">
-    <h1>Formulario de Consultorios</h1>
+    <h1>Formulario de Consultorio de los doctores</h1>
 </div>
 
 <form action="guardar.php" method="POST" class="container mt-4">
