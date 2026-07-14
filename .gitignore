@@ -1,0 +1,8 @@
+# Credenciales locales: nunca se suben al repositorio.
+# Cada quien copia config/conexion.example.php a config/conexion.php
+# y llena sus propios datos.
+config/conexion.php
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
