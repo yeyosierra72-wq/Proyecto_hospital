@@ -29,3 +29,4 @@ from consultorio c
 inner join doctor d on c.fk_doctor = d.pk_doctor
 
 
+subit todo
