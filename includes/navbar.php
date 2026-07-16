@@ -43,6 +43,14 @@ function esActivo($carpeta, $archivo, $carpetaActual, $archivoActual) {
           <a class="nav-link <?php echo esActivo('consultorio', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
              href="<?php echo BASE_URL; ?>consultorio/mostrar.php">Ver consultorios</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link <?php echo esActivo('proveedor', 'formulario.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>proveedor/formulario.php">Crear proveedors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <?php echo esActivo('proveedor', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>proveedor/mostrar.php">Ver proveedors</a>
+        </li>
       </ul>
     </div>
   </div>
