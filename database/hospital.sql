@@ -21,6 +21,13 @@ estado TINYINT DEFAULT 1
 FOREIGN KEY(fk_doctor) REFERENCES doctor (pk_doctor)
 );
 
+// crear tabla proveedor , nombre telefono estado
+create table proveedor (
+    pk_proveedor INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    estado TINYINT DEFAULT 1
+);
 
 --Saber de quien es el consultorio
 

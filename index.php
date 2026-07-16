@@ -27,6 +27,13 @@ include __DIR__ . '/includes/header.php';
                     <a href="<?php echo BASE_URL; ?>consultorio/formulario.php" class="btn btn-primary w-100 mb-2">Registrar consultorio</a>
                     <a href="<?php echo BASE_URL; ?>consultorio/mostrar.php" class="btn btn-outline-primary w-100">Ver consultorios</a>
                 </div>
+
+                    <div class="card-body text-center">
+                    <h5 class="card-title">Proveedores</h5>
+                    <a href="<?php echo BASE_URL; ?>proveedor/formulario.php" class="btn btn-primary w-100 mb-2">Registrar proveedor</a>
+                    <a href="<?php echo BASE_URL; ?>proveedor/mostrar.php" class="btn btn-outline-primary w-100">Ver proveedores</a>
+                </div>
+
             </div>
         </div>
     </div>
