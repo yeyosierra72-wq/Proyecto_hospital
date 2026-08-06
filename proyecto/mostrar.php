@@ -7,9 +7,8 @@ $titulo = 'Listado de Doctores';
 // el filtro WHERE estado = 1 se usa más adelante, en el SELECT del
 // formulario de consultorios, para no poder asignar un consultorio
 // a un doctor dado de baja).
-$sql = "SELECT pk_doctor, nombre, especialidad, telefono, email, estado
-        FROM doctor
-        ORDER BY nombre ASC";
+$sql = "SELECT codigo, telefono, domicilio, razon_social
+        FROM proyecto";
 
 $resultado = $conn->query($sql);
 
@@ -17,18 +16,17 @@ include __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="container mt-4 alert alert-primary text-center">
-    <h2>Listado de Doctores</h2>
+    <h2>Listado de Categorías</h2>
 </div>
 
 <table class="table table-striped container mt-4">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Especialidad</th>
-            <th>Teléfono</th>
-            <th>Email</th>
-            <th>Estado</th>
+            <th>codigo</th>
+            <th>telefono</th>
+            <th>domicilio</th>
+            <th>razon_social</th>
         </tr>
     </thead>
     <tbody>
@@ -46,18 +44,10 @@ include __DIR__ . '/../includes/header.php';
                 de quien vea esta tabla (XSS). Siempre se escapa el dato
                 justo antes de imprimirlo en HTML, nunca antes de guardarlo.
             -->
-            <td><?php echo htmlspecialchars($doc['pk_doctor']); ?></td>
-            <td><?php echo htmlspecialchars($doc['nombre']); ?></td>
-            <td><?php echo htmlspecialchars($doc['especialidad']); ?></td>
+            <td><?php echo htmlspecialchars($doc['codigo']); ?></td>
             <td><?php echo htmlspecialchars($doc['telefono']); ?></td>
-            <td><?php echo htmlspecialchars($doc['email']); ?></td>
-            <td>
-                <?php if ($doc['estado'] == 1): ?>
-                    <span class="badge bg-success">Activo</span>
-                <?php else: ?>
-                    <span class="badge bg-secondary">Inactivo</span>
-                <?php endif; ?>
-            </td>
+            <td><?php echo htmlspecialchars($doc['domicilio']); ?></td>
+            <td><?php echo htmlspecialchars($doc['razon_social']); ?></td>
         </tr>
         <?php endwhile; ?>
     </tbody>

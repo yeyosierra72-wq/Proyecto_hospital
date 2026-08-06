@@ -21,27 +21,27 @@ function esActivo($carpeta, $archivo, $carpetaActual, $archivoActual) {
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
-    <a class="navbar-brand" href="<?php echo BASE_URL; ?>index.php">Hospital</a>
+    <a class="navbar-brand" href="<?php echo BASE_URL; ?>index.php">software</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menuPrincipal">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link <?php echo esActivo('doctor', 'formulario.php', $carpetaActual, $archivoActual); ?>"
-             href="<?php echo BASE_URL; ?>doctor/formulario.php">Nuevo doctor</a>
+          <a class="nav-link <?php echo esActivo('proyecto', 'formulario.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>proyecto/formulario.php">Nuevo proyecto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php echo esActivo('doctor', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
-             href="<?php echo BASE_URL; ?>doctor/mostrar.php">Ver doctores</a>
+          <a class="nav-link <?php echo esActivo('proyecto', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>proyecto/mostrar.php">Ver proyectos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php echo esActivo('consultorio', 'formulario.php', $carpetaActual, $archivoActual); ?>"
-             href="<?php echo BASE_URL; ?>consultorio/formulario.php">Nuevo consultorio</a>
+          <a class="nav-link <?php echo esActivo('cliente', 'formulario.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>cliente/formulario.php">Nuevo cliente</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php echo esActivo('consultorio', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
-             href="<?php echo BASE_URL; ?>consultorio/mostrar.php">Ver consultorios</a>
+          <a class="nav-link <?php echo esActivo('cliente', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>cliente/mostrar.php">Ver clientes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link <?php echo esActivo('proveedor', 'formulario.php', $carpetaActual, $archivoActual); ?>"
@@ -51,6 +51,33 @@ function esActivo($carpeta, $archivo, $carpetaActual, $archivoActual) {
           <a class="nav-link <?php echo esActivo('proveedor', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
              href="<?php echo BASE_URL; ?>proveedor/mostrar.php">Ver proveedors</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link <?php echo esActivo('categoria', 'formulario.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>categoria/formulario.php">Crear categorias</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link <?php echo esActivo('categoria', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>categoria/mostrar.php">Ver categorias</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link <?php echo esActivo('medicamentos', 'formulario.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>medicamentos/formulario.php">Crear medicamentos</a>
+        </li>
+
+        
+        <li class="nav-item">
+          <a class="nav-link <?php echo esActivo('medicamentos', 'mostrar.php', $carpetaActual, $archivoActual); ?>"
+             href="<?php echo BASE_URL; ?>medicamentos/mostrar.php">Ver medicamentos</a>
+        </li>
+
+
+
+
+
+
       </ul>
     </div>
   </div>

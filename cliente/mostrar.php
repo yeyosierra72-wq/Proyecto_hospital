@@ -1,15 +1,14 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
-$titulo = 'Listado de proveedores';
+$titulo = 'Listado de Doctores';
 
 // Consulta simple: traemos todos los doctores, activos e inactivos.
 // (No filtramos por estado aquí porque esta vista es de administración;
 // el filtro WHERE estado = 1 se usa más adelante, en el SELECT del
 // formulario de consultorios, para no poder asignar un consultorio
 // a un doctor dado de baja).
-$sql = "SELECT pk_proveedor, nombre, telefono
-        FROM proveedor
-        ORDER BY nombre ASC";
+$sql = "SELECT codigo, descripcion, fecha_inicio, fecha_fin
+        FROM cliente";
 
 $resultado = $conn->query($sql);
 
@@ -17,16 +16,17 @@ include __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="container mt-4 alert alert-primary text-center">
-    <h2>Listado de Proveedores</h2>
+    <h2>Listado de Categorías</h2>
 </div>
 
 <table class="table table-striped container mt-4">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Teléfono</th>
-          
+            <th>codigo</th>
+            <th>Descripción</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
         </tr>
     </thead>
     <tbody>
@@ -44,10 +44,10 @@ include __DIR__ . '/../includes/header.php';
                 de quien vea esta tabla (XSS). Siempre se escapa el dato
                 justo antes de imprimirlo en HTML, nunca antes de guardarlo.
             -->
-            <td><?php echo htmlspecialchars($doc['pk_proveedor']); ?></td>
-            <td><?php echo htmlspecialchars($doc['nombre']); ?></td>
-            <td><?php echo htmlspecialchars($doc['telefono']); ?></td>
-            
+            <td><?php echo htmlspecialchars($doc['codigo']); ?></td>
+            <td><?php echo htmlspecialchars($doc['descripcion']); ?></td>
+            <td><?php echo htmlspecialchars($doc['fecha_inicio']); ?></td>
+            <td><?php echo htmlspecialchars($doc['fecha_fin']); ?></td>
         </tr>
         <?php endwhile; ?>
     </tbody>

@@ -17,8 +17,10 @@ require_once __DIR__ . '/../config/config.php';
 
 // 1) Recibimos y limpiamos los datos que llegan del formulario por POST.
 //    El operador ?? '' evita un error si por alguna razón el campo no llega.
-$nombre       = limpiar($_POST['nombre'] ?? '');
-$telefono     = limpiar($_POST['telefono'] ?? '');
+$codigo      = limpiar($_POST['codigo'] ?? '');
+$telefono = limpiar($_POST['telefono'] ?? '');
+$domicilio = limpiar($_POST['domicilio'] ?? '');
+$razon_social = limpiar($_POST['razon_social'] ?? '');
 
 
 
@@ -26,22 +28,26 @@ $telefono     = limpiar($_POST['telefono'] ?? '');
 //    MySQL recibe la consulta y los datos por separado, así que el
 //    contenido de las variables NUNCA se interpreta como parte del SQL.
 //    Esto es lo que evita la inyección SQL (SQL Injection).
-$sql = "INSERT INTO proveedor (nombre, telefono ) VALUES (?, ?)";
+$sql = "INSERT INTO proyecto(codigo, telefono, domicilio, razon_social) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 
-
+if (!$stmt) {
+    // Si prepare() falla, normalmente es un error de sintaxis SQL nuestro
+    // (columna mal escrita, etc.), no del usuario.
+    redirigir('formulario.php', 'Error al preparar la consulta', 'error');
+}
 
 // bind_param(): enlaza las variables de PHP a los "?" en el mismo orden
 // en que aparecen en el SQL. La cadena "ssss" indica el tipo de cada uno:
 // s = string, i = integer, d = double, b = blob.
 // Aquí los 4 campos son texto, por eso son 4 "s".
-$stmt->bind_param('ss', $nombre, $telefono);
+$stmt->bind_param('ssss', $codigo, $telefono, $domicilio, $razon_social);
 
 // 4) Ejecutamos la consulta y redirigimos según el resultado.
 if ($stmt->execute()) {
-    redirigir('formulario.php', 'Proveedor registrado correctamente', 'success');
+    redirigir('formulario.php', 'Categoría registrada correctamente', 'success');
 } else {
-    redirigir('formulario.php', 'Error al guardar el proveedor', 'error');
+    redirigir('formulario.php', 'Error al guardar el doctor', 'error');
 }
 
 // 5) Cerramos statement y conexión (buenas prácticas de limpieza).
