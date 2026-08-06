@@ -11,7 +11,7 @@ include __DIR__ . '/../includes/header.php';
 <form action="guardar.php" method="POST" class="container mt-4">
 
     <div class="mb-3">
-        <label for="codigo" class="form-label">codigo:</label>
+        <label for="codigo" class="form-label">codigo</label>
         <input type="text" class="form-control" id="codigo" name="codigo" required>
     </div>
 
